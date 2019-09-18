@@ -18,3 +18,10 @@ example:
 ```sh
 $ php spreadsheet-scan.php "test.xlsx" "a2:b6"
 ```
+
+Web Version:
+```
+1. Go to your local server.
+2. Upload and specify the cell range.
+3. Enjoy
+```
