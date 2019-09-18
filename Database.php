@@ -28,7 +28,7 @@ class Database{
     }
     
     public function createTable() {
-      // create table based on what you need
+      // create a table based on what you need
       $query = "CREATE TABLE IF NOT EXISTS hasil (
           id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           name VARCHAR(60) NOT NULL
@@ -45,6 +45,7 @@ class Database{
       $value_1 = $rows["A"];
       $value_2 = $rows["B"];
 
+      // also, dont forget to change the query :)
       $stmt = $this->dbh->prepare("INSERT INTO hasil (id, name) VALUES (:value_1, :value_2)");
       $stmt->bindParam(':value_1', $value_1);
       $stmt->bindParam(':value_2', $value_2);

@@ -9,7 +9,7 @@ try {
   $cellRange = $argv[2];
 
   $db = new Database(); // initializing database class
-  $db->createTable(); // you can comment this if you've created table
+  $db->createTable(); // you can comment this if you've created a table
 
   /**  Identify the type of $inputFileName  **/
   $inputFileType = \PhpOffice\PhpSpreadsheet\IOFactory::identify($inputFileName);
