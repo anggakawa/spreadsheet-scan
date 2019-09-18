@@ -28,6 +28,7 @@ class SpreadSheetScan {
       $reader->setReadDataOnly(true);
       /**  Load $inputFileName to a Spreadsheet Object  **/
       $this -> spreadsheet = $reader->load($this -> inputFileName);
+      return $this;
     } catch (\Throwable $th) {
       die('Error loading file: '.$th->getMessage());
     }

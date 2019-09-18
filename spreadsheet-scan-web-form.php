@@ -8,8 +8,7 @@ if (isset($_POST["submit"])) {
   $cellRange = $_REQUEST['cell-range'];
   $inputFileName = $_FILES['file-data']['tmp_name'];
   $SpreadSheetScan = new SpreadSheetScan($inputFileName, $cellRange);
-  $SpreadSheetScan -> loadData();
-  $SpreadSheetScan -> importData();
+  $SpreadSheetScan -> loadData() -> importData();
 } else {
   echo "not imported";
 }
