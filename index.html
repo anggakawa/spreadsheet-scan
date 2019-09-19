@@ -20,17 +20,59 @@
       .catch(err => alert('something gone wrong, you either have inserted the data or the file not inputted'));
     }
   </script>
+  <style>
+    html {
+      background-color: #FAFAFA;
+    }
+    .form-container {
+      display: flex;
+      height: 90vh;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-content: center;
+      margin: 0;
+    }
+    form {
+      background-color: #FFF;
+      padding: 4em;
+      max-width: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .item {
+      margin-bottom: 1em;
+    }
+    label {
+      margin-bottom: 0.5em;
+    }
+    .submit {
+      margin-top: 2em;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 0.6em;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+
+    }
+  </style>
 </head>
 <body>
+<div class="form-container">
   <form action="spreadsheet-scan-web-form.php" method="post" enctype="multipart/form-data" 
     onsubmit="return submitForm(event, this);">
-    <div class="form-container">
-      <label for="cell-range">Cell Range</label>
-      <input type="text" name="cell-range" id="cell-range">
-      <label for="file-data">File Upload</label>
-      <input type="file" name="file-data" id="file-data">
-    </div>
-    <button type="submit" name="submit">Import</button>
+    <h2>Form Input</h2>
+    <label for="cell-range">Cell Range</label>
+    <input type="text" name="cell-range" id="cell-range" class="item">
+    <label for="file-data">File Upload</label>
+    <input type="file" name="file-data" id="file-data"class="item"> 
+    <button type="submit" name="submit" class="submit">Import</button>
   </form>
+  </div>
 </body>
 </html>
