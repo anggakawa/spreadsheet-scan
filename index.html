@@ -5,9 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Spreadsheet Scan Form Upload</title>
+  <script>
+    function submitForm(e, formElements) {
+      e.preventDefault();
+      fetch(formElements.getAttribute('action'), { method: formElements.method, 
+        body: new FormData(formElements) })
+      .then(res => res.json()).then((res) => {
+        if (res.success) {
+          alert ('Data inserted, Please check the database');
+        } else {
+          alert ('Failed, something gone wrong');
+        }
+      })
+      .catch(err => alert('something gone wrong, you either have inserted the data or the file not inputted'));
+    }
+  </script>
 </head>
 <body>
-  <form action="spreadsheet-scan-web-form.php" method="post" enctype="multipart/form-data">
+  <form action="spreadsheet-scan-web-form.php" method="post" enctype="multipart/form-data" 
+    onsubmit="return submitForm(event, this);">
     <div class="form-container">
       <label for="cell-range">Cell Range</label>
       <input type="text" name="cell-range" id="cell-range">

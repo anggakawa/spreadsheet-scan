@@ -1,30 +1,19 @@
 <?php
+// header('Content-Type: application/json');
 
-require 'vendor/autoload.php';
-require_once 'Database.php';
 require_once 'SpreadSheetScan.php';
 
-if (isset($_POST["submit"])) {
+if (isset($_FILES)) {
   $cellRange = $_REQUEST['cell-range'];
   $inputFileName = $_FILES['file-data']['tmp_name'];
   $SpreadSheetScan = new SpreadSheetScan($inputFileName, $cellRange);
   $SpreadSheetScan -> loadData() -> importData();
+  
+  echo json_encode( [ "success" => true] );
 } else {
-  echo "not imported";
+  // http_response_code(500);
+  // header('Content-type: application/json');
+  echo json_encode( [ "success" => false] );
+  // echo "gagal";
 }
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <script>
-      window.setTimeout(function() {
-          window.location = 'index.html';
-        }, 1500);
-  </script>
-    <p>Spreadsheet Imported :))</p>
+

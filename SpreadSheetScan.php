@@ -43,7 +43,7 @@ class SpreadSheetScan {
       $this -> db ->insertToTable($row);
     }
 
-    echo "success";
+    // echo "success";
   }
 
 }

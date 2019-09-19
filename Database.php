@@ -34,7 +34,7 @@ class Database{
           name VARCHAR(60) NOT NULL
         )";
       $this->dbh->exec($query);
-      echo "Table created successfully" . PHP_EOL;
+      // echo "Table created successfully" . PHP_EOL;
     }
 
     // change the argument based on what you need
